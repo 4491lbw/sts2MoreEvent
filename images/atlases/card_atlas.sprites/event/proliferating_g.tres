@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bxr867yu530wl"]
+
+[ext_resource type="Texture2D" uid="uid://b6n7kx8dte8ho" path="res://images/packed/card_portraits/event/proliferating_g.png" id="1_q0a62"]
+
+[resource]
+atlas = ExtResource("1_q0a62")
+region = Rect2(33.068817, 9.487038, 920.9193, 740.8349)
