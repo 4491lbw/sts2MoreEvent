@@ -29,7 +29,7 @@ public class DriftWithFlow : EventModel
 		new MaxHpVar(10m),
 		new DynamicVar("V50", 50m),
 		new DamageVar("Head", 6m, ValueProp.Unblockable | ValueProp.Unpowered),
-		new DynamicVar("DriftGold", 28m),
+		new DynamicVar("DriftGold", 28m + base.Rng.NextInt(6)),
 	];
 
 	//public override bool IsAllowed(RunState runState) => true; // 是否允许发生该事件
