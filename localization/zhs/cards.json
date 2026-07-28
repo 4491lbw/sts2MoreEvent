@@ -1,13 +1,16 @@
 {
+  "GALACTIC_ROAMING_GUIDE.title": "银河漫游指南",
+  "GALACTIC_ROAMING_GUIDE.description": "获得{Energy:energyIcons()}。\n抽[blue]{GalaCard}[/blue]张牌。",
+
   "CURSE_STORYBOOK.title": "诅咒的故事书",
-  "CURSE_STORYBOOK.description": "获得的[gold]格挡[/gold]自动消耗到这张卡上。\n还需[blue]{BlockNeed}[/blue]点[gold]格挡[/gold]来封印这本书。",
-	
+  "CURSE_STORYBOOK.description": "获得的[gold]格挡[/gold]被自动\n消耗到这张卡牌上。\n还需[blue]{BlockNeed}[/blue]点[gold]格挡[/gold]来封印这本书。",
+
   "PROLIFERATING_G.title": "增殖的G",
-  "PROLIFERATING_G.description": "敌人的[gold]攻击，防御行为[/gold]使你在下回合抽取相同数量的卡。\n在回合开始时将一张[gold]感染[/gold]加入到弃牌堆。",
+  "PROLIFERATING_G.description": "敌人的[gold]攻击，防御行为[/gold]使你在下回合抽取相同数量的牌。\n在回合开始时将一张[gold]感染[/gold]加入到弃牌堆。",
 
   "FERMENTATION.title": "发酵",
-  "FERMENTATION.description": "在每个回合开始前获得\n{Energy:energyIcons()}，额外抽一张牌，获得2层[gold]中毒[/gold]。",
-	
+  "FERMENTATION.description": "在每个回合开始前获得{Energy:energyIcons()}。\n额外抽一张牌，获得2层[gold]中毒[/gold]。",
+
   "ABRASIVE.description": "获得{DexterityPower:diff()}点[gold]敏捷[/gold]。\n获得{ThornsPower:diff()}点[gold]荆棘[/gold]。",
   "ABRASIVE.title": "磨蚀",
   "ACCELERANT.description": "[gold]中毒[/gold]会额外触发{Accelerant:diff()}次。",

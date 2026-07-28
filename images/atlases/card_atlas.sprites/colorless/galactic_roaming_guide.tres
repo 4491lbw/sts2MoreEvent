@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://iqg8a2upllrx"]
+
+[ext_resource type="Texture2D" uid="uid://b76ies4chqyss" path="res://images/packed/card_portraits/colorless/galactic_roaming_guide.png" id="1_nbdwp"]
+
+[resource]
+atlas = ExtResource("1_nbdwp")
+region = Rect2(37.395386, 29.594238, 939.0183, 711.1682)

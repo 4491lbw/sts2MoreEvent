@@ -29,7 +29,7 @@ public class DriftWithFlow : EventModel
 		new MaxHpVar(10m),
 		new DynamicVar("V50", 50m),
 		new DamageVar("Head", 6m, ValueProp.Unblockable | ValueProp.Unpowered),
-		new DynamicVar("DriftGold", 28m + base.Rng.NextInt(6)),
+		new DynamicVar("DriftGold", 28m),
 	];
 
 	//public override bool IsAllowed(RunState runState) => true; // 是否允许发生该事件
@@ -37,6 +37,8 @@ public class DriftWithFlow : EventModel
 	// 生成事件的选项列表
 	protected override List<EventOption> GenerateInitialOptions()
 	{
+		base.DynamicVars["DriftGold"].BaseValue += base.Rng.NextInt(6);
+
 		return [
 			new EventOption(this, ActListen, InitialOptionKey("LISTEN")),
 			new EventOption(this, ActRelax, InitialOptionKey("RELAX"))

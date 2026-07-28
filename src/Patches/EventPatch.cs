@@ -18,6 +18,7 @@ namespace MoreEvent.Patches
 			__result = __result
 				.Concat(new[] { ModelDb.Event<ThreeSuns>() })
 				.Concat(new[] { ModelDb.Event<WhereItIs>() })
+				.Concat(new[] { ModelDb.Event<PacketLoss>() })
 				.Distinct();
 		}
 	}

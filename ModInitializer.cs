@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Saves.Runs;
 using MoreEvent.Events;
 using MoreEvent.Cards;
 using MoreEvent.Buffs;
+using MoreEvent.Relics;
 
 namespace MoreEvent   // ← 这里改成你的模组ID（必须和你的.json文件中的"id"一致！）
 {
@@ -30,6 +31,7 @@ namespace MoreEvent   // ← 这里改成你的模组ID（必须和你的.json�
 				ModHelper.AddModelToPool(typeof(EventCardPool), typeof(Fermentation));
 				ModHelper.AddModelToPool(typeof(EventCardPool), typeof(ProliferatingG));
 				ModHelper.AddModelToPool(typeof(QuestCardPool),typeof(CurseStorybook));
+				ModHelper.AddModelToPool(typeof(ColorlessCardPool), typeof(GalacticRoamingGuide));
 				//ModHelper.AddModelToPool(typeof( 遗物池 ), typeof( 遗物名字 ));
 				//ModHelper.AddModelToPool(typeof( 药水池 ), typeof( 药水名字 ));
 			}

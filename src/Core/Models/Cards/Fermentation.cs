@@ -20,8 +20,9 @@ public sealed class Fermentation : CardModel
 	];
 
 	public Fermentation()
-		: base(1, CardType.Power, CardRarity.Event, TargetType.Self) {}
-
+		: base(1, CardType.Power, CardRarity.Event, TargetType.Self) 
+	{
+	}
 
 	protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
 	{
