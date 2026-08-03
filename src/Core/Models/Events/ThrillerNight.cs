@@ -33,6 +33,8 @@ public class ThrillerNight : EventModel
         CardModel card = base.Owner.RunState.CreateCard<Thriller>(base.Owner);
         CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(card, PileType.Deck));
         await Cmd.CustomScaledWait(0.5f, 1.2f);
+
+        SetEventFinished(L10NLookup("THRILLER_NIGHT.pages.DANCE.description"));
     }
     private async Task ActFlee()
     {
@@ -40,5 +42,8 @@ public class ThrillerNight : EventModel
         await CreatureCmd.Heal(base.Owner.Creature, base.DynamicVars["FleeHp"].BaseValue);
         await CardPileCmd.AddCurseToDeck<PoorSleep>(base.Owner);
         await Cmd.CustomScaledWait(0.5f, 1.2f);
+
+        SetEventFinished(L10NLookup("THRILLER_NIGHT.pages.FLEE.description"));
+
     }
 }
