@@ -45,7 +45,7 @@ public sealed class BrokenPacketWatch : RelicModel
 
     private long TimeCost;
 
-    public override Task BeforeCombatStart()
+    public override Task AfterAutoPrePlayPhaseEnteredLate(PlayerChoiceContext choiceContext, Player player)
     {
         if (CombatStartRunTime < 0L)
         {

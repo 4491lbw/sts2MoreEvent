@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Screens.Timeline;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Runs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,67 +34,73 @@ public sealed class HalfClock : RelicModel
 
     public bool isGet = false;
 
+    private long TimeStart;
+
     private SceneTreeTimer _afkTimer;
     protected override List<DynamicVar> CanonicalVars => [
         new DynamicVar("TimeLast", 10m),
-        new EnergyVar("Enery", 1),
+        new EnergyVar("Energy", 1),
     ];
-    public override Task BeforeCombatStart()
+    public override Task AfterAutoPrePlayPhaseEnteredLate(PlayerChoiceContext choiceContext, Player player)
     {
-        isGet = false;
-        counter = 0;
-        SceneTree tree = (SceneTree)Engine.GetMainLoop();
-        _afkTimer = tree.CreateTimer((double)base.DynamicVars["TimeLast"].BaseValue);
-        _afkTimer.Timeout += AutoTimeOut;
-        InvokeDisplayAmountChanged();
+        TimeShutter();
+        TimeRun();
 
         return Task.CompletedTask;
     }
     public override Task AfterCombatEnd(CombatRoom room)
     {
-        if (_afkTimer != null)
-        {
-            _afkTimer.Timeout -= AutoTimeOut;
-            _afkTimer = null;
-        }
-
+        TimeShutter();
+        counter = 0;
         return Task.CompletedTask;
     }
     public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        isGet = false;
+        TimeShutter();
+        TimeRun();
         return Task.CompletedTask;
     }
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (isGet)
+        if (!isGet && base.Owner == cardPlay.Card.Owner)
         {
-            if (_afkTimer != null)
-            {
-                _afkTimer.Timeout -= AutoTimeOut;
-                _afkTimer = null;
-            }
-
-            SceneTree tree = (SceneTree)Engine.GetMainLoop();
-            _afkTimer = tree.CreateTimer((double)base.DynamicVars["TimeLast"].BaseValue);
-            _afkTimer.Timeout += AutoTimeOut;
+            TimeShutter();
+            TimeRun();
         }
 
         return Task.CompletedTask;
     }
     private void AutoTimeOut()
     {
+        Flash();
+        _afkTimer = null;
         isGet = true;
+        counter += 1;
         PlayerCmd.GainEnergy(base.DynamicVars.Energy.BaseValue, base.Owner);
         if(base.DynamicVars["TimeLast"].BaseValue < maximumTimeCount)
         {
-            base.DynamicVars["TimeLast"].BaseValue += 5 * counter;
+            base.DynamicVars["TimeLast"].BaseValue += 2 * counter;
             InvokeDisplayAmountChanged();
         }
         else
         {
             base.DynamicVars["TimeLast"].BaseValue = maximumTimeCount;
             InvokeDisplayAmountChanged();
+        }
+    }
+    private void TimeRun()
+    {
+        SceneTree tree = (SceneTree)Engine.GetMainLoop();
+        _afkTimer = tree.CreateTimer((double)base.DynamicVars["TimeLast"].BaseValue);
+        _afkTimer.Timeout += AutoTimeOut;
+    }
+    private void TimeShutter()
+    {
+        isGet = false;
+        if (_afkTimer != null)
+        {
+            _afkTimer.Timeout -= AutoTimeOut;
+            _afkTimer = null;
         }
     }
 }
