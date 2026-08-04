@@ -23,7 +23,7 @@ public class DissolvedClock : EventModel
 {
     private int rate = 0;
     protected override List<DynamicVar> CanonicalVars => [
-        new DamageVar("Fail", 5m, ValueProp.Unblockable | ValueProp.Unpowered),
+        new DamageVar("WakeDamage", 5m, ValueProp.Unblockable | ValueProp.Unpowered),
 
     ];
     protected override List<EventOption> GenerateInitialOptions()
@@ -35,7 +35,7 @@ public class DissolvedClock : EventModel
     }
     private async Task ActWake()
     {
-        if (base.Rng.NextFloat() < 1 - 1.0f / (2 + rate) - 0.9f)
+        if (base.Rng.NextFloat() < 1 - 1.0f / (2 + rate))
         {
             rate = 0;
             await RelicCmd.Obtain<BrokenPacketWatch>(base.Owner);
@@ -46,7 +46,12 @@ public class DissolvedClock : EventModel
             SetEventState(L10NLookup("DISSOLVED_CLOCK.pages.WAKE.FAIL.description"),
             new EventOption[]
             {
-                new EventOption(this, ActWake, "DISSOLVED_CLOCK.pages.WAKE.FAIL.options.WAKE"),
+                new EventOption(this,
+                async ()=>{
+                    await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), base.Owner.Creature, (DamageVar)base.DynamicVars["WakeDamage"], null, null);
+                    rate += 1;
+                    await ActWake();
+                    }, "DISSOLVED_CLOCK.pages.WAKE.FAIL.options.WAKE"),
                 new EventOption(this, ActSink, "DISSOLVED_CLOCK.pages.WAKE.FAIL.options.SINK")
             }
             );
