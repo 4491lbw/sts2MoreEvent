@@ -81,6 +81,7 @@ public class Hodgepodge : EventModel
                 SetEventFinished(L10NLookup("HODGEPODGE.pages.DRINK.B.description"));
                 break;
             case 2:
+
                 SetEventFinished(L10NLookup("HODGEPODGE.pages.DRINK.C.description"));
                 break;
             case 3:

@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.ValueProps;
 using MoreEvent.Cards;
+using MoreEvent.Relics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +47,7 @@ public class Universe : EventModel
     private async Task ActSleep()
     {
         // 待补充
+        await RelicCmd.Obtain<TransitionCore>(base.Owner);
         await CardPileCmd.AddCurseToDeck<PoorSleep>(base.Owner);
         SetEventFinished(L10NLookup("UNIVERSE.pages.SLEEP.description"));
     }

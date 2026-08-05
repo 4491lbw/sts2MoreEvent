@@ -1,4 +1,8 @@
 { 
+  "TRANSITION_CORE.title": "古老核心",
+  "BROKEN_POCKET_WATCH.flavor": "[red][jitter]它来自上个宇宙！！！[/jitter][/red]",
+  "BROKEN_POCKET_WATCH.description": "你造成的伤害、施加的效果在[gold]一回合后[/gold]才会生效。",
+
   "BROKEN_POCKET_WATCH.title": "损坏怀表",
   "BROKEN_POCKET_WATCH.flavor": "[red]咦，怀表怎么停了？[/red]",
   "BROKEN_POCKET_WATCH.description": "当你在[gold]1min[/gold]内结束战斗，获得额外奖励。当一场战斗持续超过[gold]5min[/gold]时，将受到惩罚。",

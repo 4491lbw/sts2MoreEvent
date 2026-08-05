@@ -35,7 +35,7 @@ public class DissolvedClock : EventModel
     }
     private async Task ActWake()
     {
-        if (base.Rng.NextFloat() < 1 - 1.0f / (2 + rate))
+        if (base.Rng.NextFloat() < 0.1 + 1 - 1.0f / (1 + rate))
         {
             rate = 0;
             await RelicCmd.Obtain<BrokenPacketWatch>(base.Owner);

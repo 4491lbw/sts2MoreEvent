@@ -3,23 +3,50 @@
   "WorkspaceRootPath": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|c:\\users\\chenting\\desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\core\\models\\events\\dissolvedclock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|solutionrelative:src\\core\\models\\events\\dissolvedclock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|c:\\users\\chenting\\desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\core\\models\\relics\\rumble.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|solutionrelative:src\\core\\models\\relics\\rumble.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|c:\\users\\chenting\\desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\core\\models\\events\\universe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|solutionrelative:src\\core\\models\\events\\universe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|c:\\users\\chenting\\desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\core\\models\\powers\\fermentationpower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|solutionrelative:src\\core\\models\\powers\\fermentationpower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|c:\\users\\chenting\\desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\core\\models\\relics\\transitioncore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|solutionrelative:src\\core\\models\\relics\\transitioncore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|c:\\users\\chenting\\desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\core\\models\\events\\hodgepodge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|solutionrelative:src\\core\\models\\events\\hodgepodge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|c:\\users\\chenting\\desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\core\\models\\events\\driftwithflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|solutionrelative:src\\core\\models\\events\\driftwithflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ChenTing\\Desktop\\godot\\Slay the Spire 2 decode\\src\\Core\\Models\\Events\\SlipperyBridge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|c:\\users\\chenting\\desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\core\\models\\relics\\brokenpacketwatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|solutionrelative:src\\core\\models\\relics\\brokenpacketwatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|c:\\users\\chenting\\desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\patches\\runtimehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|solutionrelative:src\\patches\\runtimehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|c:\\users\\chenting\\desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\modinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|solutionrelative:modinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|c:\\users\\chenting\\desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\core\\models\\events\\universe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|solutionrelative:src\\core\\models\\events\\universe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ChenTing\\Desktop\\godot\\Slay the Spire 2 decode\\src\\Core\\Models\\Events\\SunkenStatue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|c:\\users\\chenting\\desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\core\\models\\relics\\halfclock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6DC22A1-A224-E922-2E1C-881E321A61BE}|MoreEvent.csproj|solutionrelative:src\\core\\models\\relics\\halfclock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ChenTing\\Desktop\\godot\\Slay the Spire 2 decode\\src\\Core\\Models\\Events\\SlipperyBridge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,36 +56,139 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FermentationPower.cs",
+              "DocumentMoniker": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Core\\Models\\Powers\\FermentationPower.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Models\\Powers\\FermentationPower.cs",
+              "ToolTip": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Core\\Models\\Powers\\FermentationPower.cs",
+              "RelativeToolTip": "src\\Core\\Models\\Powers\\FermentationPower.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAwB8AAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-05T14:32:41.585Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "rumble.cs",
+              "DocumentMoniker": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Core\\Models\\Relics\\rumble.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Models\\Relics\\rumble.cs",
+              "ToolTip": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Core\\Models\\Relics\\rumble.cs",
+              "RelativeToolTip": "src\\Core\\Models\\Relics\\rumble.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-05T14:30:15.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Hodgepodge.cs",
+              "DocumentMoniker": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Core\\Models\\Events\\Hodgepodge.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Models\\Events\\Hodgepodge.cs",
+              "ToolTip": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Core\\Models\\Events\\Hodgepodge.cs",
+              "RelativeToolTip": "src\\Core\\Models\\Events\\Hodgepodge.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAQwFIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-05T11:33:23.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ModInitializer.cs",
+              "DocumentMoniker": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\ModInitializer.cs",
+              "RelativeDocumentMoniker": "ModInitializer.cs",
+              "ToolTip": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\ModInitializer.cs",
+              "RelativeToolTip": "ModInitializer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-05T10:35:43.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RunTimeHelper.cs",
+              "DocumentMoniker": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Patches\\RunTimeHelper.cs",
+              "RelativeDocumentMoniker": "src\\Patches\\RunTimeHelper.cs",
+              "ToolTip": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Patches\\RunTimeHelper.cs",
+              "RelativeToolTip": "src\\Patches\\RunTimeHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-05T10:35:41.64Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "TransitionCore.cs",
+              "DocumentMoniker": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Core\\Models\\Relics\\TransitionCore.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Models\\Relics\\TransitionCore.cs",
+              "ToolTip": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Core\\Models\\Relics\\TransitionCore.cs",
+              "RelativeToolTip": "src\\Core\\Models\\Relics\\TransitionCore.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAUwGUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-04T16:34:02.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BrokenPacketWatch.cs",
+              "DocumentMoniker": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Core\\Models\\Relics\\BrokenPacketWatch.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Models\\Relics\\BrokenPacketWatch.cs",
+              "ToolTip": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Core\\Models\\Relics\\BrokenPacketWatch.cs",
+              "RelativeToolTip": "src\\Core\\Models\\Relics\\BrokenPacketWatch.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAADcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-04T16:34:13.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SunkenStatue.cs",
+              "DocumentMoniker": "C:\\Users\\ChenTing\\Desktop\\godot\\Slay the Spire 2 decode\\src\\Core\\Models\\Events\\SunkenStatue.cs",
+              "RelativeDocumentMoniker": "..\\Slay the Spire 2 decode\\src\\Core\\Models\\Events\\SunkenStatue.cs",
+              "ToolTip": "C:\\Users\\ChenTing\\Desktop\\godot\\Slay the Spire 2 decode\\src\\Core\\Models\\Events\\SunkenStatue.cs",
+              "RelativeToolTip": "..\\Slay the Spire 2 decode\\src\\Core\\Models\\Events\\SunkenStatue.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-04T14:21:20.423Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "DriftWithFlow.cs",
               "DocumentMoniker": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Core\\Models\\Events\\DriftWithFlow.cs",
               "RelativeDocumentMoniker": "src\\Core\\Models\\Events\\DriftWithFlow.cs",
               "ToolTip": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Core\\Models\\Events\\DriftWithFlow.cs",
               "RelativeToolTip": "src\\Core\\Models\\Events\\DriftWithFlow.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAQwD0AAABgAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAqwBoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-04T11:49:31.904Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "HalfClock.cs",
               "DocumentMoniker": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Core\\Models\\Relics\\HalfClock.cs",
               "RelativeDocumentMoniker": "src\\Core\\Models\\Relics\\HalfClock.cs",
               "ToolTip": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Core\\Models\\Relics\\HalfClock.cs",
               "RelativeToolTip": "src\\Core\\Models\\Relics\\HalfClock.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAA1wCUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAQwDUAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-04T10:36:19.933Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "SlipperyBridge.cs",
               "DocumentMoniker": "C:\\Users\\ChenTing\\Desktop\\godot\\Slay the Spire 2 decode\\src\\Core\\Models\\Events\\SlipperyBridge.cs",
               "RelativeDocumentMoniker": "..\\Slay the Spire 2 decode\\src\\Core\\Models\\Events\\SlipperyBridge.cs",
@@ -70,29 +200,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DissolvedClock.cs",
-              "DocumentMoniker": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Core\\Models\\Events\\DissolvedClock.cs",
-              "RelativeDocumentMoniker": "src\\Core\\Models\\Events\\DissolvedClock.cs",
-              "ToolTip": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Core\\Models\\Events\\DissolvedClock.cs",
-              "RelativeToolTip": "src\\Core\\Models\\Events\\DissolvedClock.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAA8wDMAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-01T09:01:11.104Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "Universe.cs",
               "DocumentMoniker": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Core\\Models\\Events\\Universe.cs",
               "RelativeDocumentMoniker": "src\\Core\\Models\\Events\\Universe.cs",
               "ToolTip": "C:\\Users\\ChenTing\\Desktop\\godot\\\u66F4\u591A\u4E8B\u4EF6\\src\\Core\\Models\\Events\\Universe.cs",
               "RelativeToolTip": "src\\Core\\Models\\Events\\Universe.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAYwDYAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAYwDEAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-03T17:00:23.965Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-03T17:00:23.965Z"
             }
           ]
         }

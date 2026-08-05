@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Screens.Timeline;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
+using MegaCrit.Sts2.Core.Saves.Runs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,8 +38,24 @@ public sealed class HalfClock : RelicModel
     private long TimeStart;
 
     private SceneTreeTimer _afkTimer;
+
+    private int _timeLast = 7;
+
+    [SavedProperty]
+    public int TimeLast
+    {
+        get => _timeLast;
+        private set
+        {
+            AssertMutable();
+            _timeLast = value;
+            DynamicVars["TimeLast"].BaseValue = value;
+            InvokeDisplayAmountChanged();
+        }
+    }
+
     protected override List<DynamicVar> CanonicalVars => [
-        new DynamicVar("TimeLast", 10m),
+        new DynamicVar("TimeLast", _timeLast),
         new EnergyVar("Energy", 1),
     ];
     public override Task AfterAutoPrePlayPhaseEnteredLate(PlayerChoiceContext choiceContext, Player player)
