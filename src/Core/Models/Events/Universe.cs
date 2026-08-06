@@ -46,8 +46,13 @@ public class Universe : EventModel
     }
     private async Task ActSleep()
     {
-        // 待补充
-        await RelicCmd.Obtain<TransitionCore>(base.Owner);
+        await RewardsCmd.OfferCustom(base.Owner,
+        new List<Reward>(1)
+{
+            new RelicReward(
+            ModelDb.Relic<TransitionCore>().ToMutable(),
+            base.Owner)
+        });
         await CardPileCmd.AddCurseToDeck<PoorSleep>(base.Owner);
         SetEventFinished(L10NLookup("UNIVERSE.pages.SLEEP.description"));
     }

@@ -13,18 +13,20 @@ using System.Threading.Tasks;
 
 namespace MoreEvent.Relics;
 
-public sealed class rumble : RelicModel
+public sealed class Rumble : RelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Event;
     public override bool ShowCounter => false;
     protected override List<DynamicVar> CanonicalVars => [
         new PowerVar<PoisonPower>(5m),
+        new PowerVar<WeakPower>(1m)
     ];
 
     public override async Task BeforeCombatStartLate()
     {
         Flash();
         await PowerCmd.Apply<PoisonPower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, base.DynamicVars.Poison.BaseValue, null, null);
-        await RelicCmd.Remove(this);
+        await PowerCmd.Apply<PoisonPower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, base.DynamicVars.Weak.BaseValue, null, null);
+        base.Status = RelicStatus.Disabled;
     }
 }

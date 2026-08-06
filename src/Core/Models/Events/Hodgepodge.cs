@@ -1,6 +1,8 @@
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Gold;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Factories;
@@ -14,6 +16,7 @@ using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.ValueProps;
+using MoreEvent.Relics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,11 +47,17 @@ public class Hodgepodge : EventModel
     
     protected override List<EventOption> GenerateInitialOptions()
     {
-        return [
+        List<EventOption> options = new List<EventOption>
+        {
             new EventOption(this, ActCollect, InitialOptionKey("COLLECT")),
             new EventOption(this, ActRelax, InitialOptionKey("RELAX")),
             new EventOption(this, ActDrink, InitialOptionKey("DRINK"))
-        ]; 
+        };
+        if (base.Owner.RunState.Players.Count > 1)
+        {
+            options.Insert(0, new EventOption(this, ActExchange, InitialOptionKey("EXCHANGE")));
+        }
+        return options;
     }
 
     private async Task ActCollect()
@@ -71,17 +80,19 @@ public class Hodgepodge : EventModel
     }
     private async Task ActDrink()
     {
-        switch (base.Rng.NextInt(10))
+        switch (base.Rng.NextInt(9))
         {
             case 0:
                 await CreatureCmd.Heal(base.Owner.Creature, base.Owner.Creature.CurrentHp / 2);
                 SetEventFinished(L10NLookup("HODGEPODGE.pages.DRINK.A.description"));
                 break;
             case 1:
-                SetEventFinished(L10NLookup("HODGEPODGE.pages.DRINK.B.description"));
+                SetEventFinished(L10NLookup("HODGEPODGE.pages.DRINK.G.description"));
                 break;
             case 2:
-
+                await RelicCmd.Obtain<Rumble>(base.Owner);
+                List<CardModel> cards = (await CardSelectCmd.FromDeckForRemoval(prefs: new CardSelectorPrefs(CardSelectorPrefs.RemoveSelectionPrompt, 1), player: base.Owner)).ToList();
+                await CardPileCmd.RemoveFromDeck(cards);
                 SetEventFinished(L10NLookup("HODGEPODGE.pages.DRINK.C.description"));
                 break;
             case 3:
@@ -97,22 +108,9 @@ public class Hodgepodge : EventModel
                 break;
             case 5:
                 await CreatureCmd.Heal(base.Owner.Creature, base.DynamicVars["Kind"].BaseValue);
-                //await CreatureCmd.Heal(base.Owner.Creature, base.DynamicVars.Heal.IntValue);
                 SetEventFinished(L10NLookup("HODGEPODGE.pages.DRINK.F.description"));
                 break;
             case 6:
-                SetEventFinished(L10NLookup("HODGEPODGE.pages.DRINK.G.description"));
-                break;
-            case 7:
-                await CreatureCmd.GainMaxHp(base.Owner.Creature, base.DynamicVars["Memory"].BaseValue);
-                SetEventFinished(L10NLookup("HODGEPODGE.pages.DRINK.H.description"));
-                break;
-            case 8:
-                RelicModel relic = RelicFactory.PullNextRelicFromFront(base.Owner, RelicRarity.Common, (RelicModel r) => r.IsAllowedInShops).ToMutable();
-                await RelicCmd.Obtain(relic, base.Owner);
-                SetEventFinished(L10NLookup("HODGEPODGE.pages.DRINK.I.description"));
-                break;
-            case 9:
                 await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), base.Owner.Creature, (DamageVar)base.DynamicVars["Potions"], null, null);
 
                 await RewardsCmd.OfferCustom(base.Owner, new List<Reward>(3)
@@ -123,6 +121,40 @@ public class Hodgepodge : EventModel
                 });
                 SetEventFinished(L10NLookup("HODGEPODGE.pages.DRINK.J.description"));
                 break;
+            case 7:
+                await CreatureCmd.GainMaxHp(base.Owner.Creature, base.DynamicVars["Memory"].BaseValue);
+                SetEventFinished(L10NLookup("HODGEPODGE.pages.DRINK.H.description"));
+                break;
+            case 8:
+                RelicModel relic = RelicFactory.PullNextRelicFromFront(base.Owner, RelicRarity.Common, (RelicModel r) => r.IsAllowedInShops).ToMutable();
+                await RelicCmd.Obtain(relic, base.Owner);
+                SetEventFinished(L10NLookup("HODGEPODGE.pages.DRINK.I.description"));
+                break;
         }
+    }
+
+    private async Task ActExchange()
+    {
+        List<Player> otherPlayers = base.Owner.RunState.Players.Where(player => player != base.Owner && player.Deck.Cards.Any(IsExchangeable)).ToList();
+        Player targetPlayer = base.Rng.NextItem(otherPlayers);
+
+        CardSelectorPrefs exchangePrefs = new CardSelectorPrefs(L10NLookup("HODGEPODGE.pages.EXCHANGE.PREFS"), 1)
+        {
+            RequireManualConfirmation = true
+        };
+
+        CardModel ownerCard = (await CardSelectCmd.FromDeckGeneric(base.Owner, exchangePrefs, IsExchangeable)).FirstOrDefault();
+        CardModel targetCard = (await CardSelectCmd.FromDeckGeneric(targetPlayer, exchangePrefs, IsExchangeable)).FirstOrDefault();
+        await CardPileCmd.RemoveFromDeck(new CardModel[2]{ownerCard, targetCard}, showPreview: false);
+        // 重新定义Card对应Owner
+        CardModel ownerGet = base.Owner.RunState.LoadCard(targetCard.ToSerializable(), base.Owner);
+        CardModel targetGet = targetPlayer.RunState.LoadCard(ownerCard.ToSerializable(), targetPlayer);
+        await CardPileCmd.Add(ownerGet, PileType.Deck);
+        await CardPileCmd.Add(targetGet, PileType.Deck);
+
+    }
+    private static bool IsExchangeable(CardModel card)
+    {
+        return card.IsRemovable;
     }
 }

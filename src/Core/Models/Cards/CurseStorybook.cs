@@ -27,11 +27,6 @@ public sealed class CurseStorybook : CardModel
 
     private bool isOnHand = false;
     public override int MaxUpgradeLevel => 0;
-
-    //public override IEnumerable<CardKeyword> CanonicalKeywords =>
-    //[
-    //    CardKeyword.Unplayable,
-    //];
     protected override List<DynamicVar> CanonicalVars => [
         new DynamicVar("BlockNeed", 99),
     ];

@@ -1,7 +1,11 @@
 { 
+  "RUMBLE.title": "咕噜咕噜",
+  "RUMBLE.flavor": "[green]你感到反胃。[/green]",
+  "RUMBLE.description": "回合开始时，获得[green]{Poison}[/green]层[gold]中毒[/gold]。",
+
   "TRANSITION_CORE.title": "古老核心",
-  "BROKEN_POCKET_WATCH.flavor": "[red][jitter]它来自上个宇宙！！！[/jitter][/red]",
-  "BROKEN_POCKET_WATCH.description": "你造成的伤害、施加的效果在[gold]一回合后[/gold]才会生效。",
+  "TRANSITION_CORE.flavor": "[red][jitter]它来自上个宇宙！！！[/jitter][/red]",
+  "TRANSITION_CORE.description": "你对敌人造成的伤害、施加的效果在[gold]一回合后[/gold]才会生效。",
 
   "BROKEN_POCKET_WATCH.title": "损坏怀表",
   "BROKEN_POCKET_WATCH.flavor": "[red]咦，怀表怎么停了？[/red]",

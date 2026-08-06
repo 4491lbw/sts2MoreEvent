@@ -30,7 +30,7 @@ public class ThrillerNight : EventModel
 
     private async Task ActDance()
     {
-        CardModel card = base.Owner.RunState.CreateCard<Thriller>(base.Owner);
+        CardModel card = base.Owner.RunState.CreateCard<ThrillerStrike>(base.Owner);
         CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(card, PileType.Deck));
         await Cmd.CustomScaledWait(0.5f, 1.2f);
 

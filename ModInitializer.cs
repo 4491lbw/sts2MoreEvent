@@ -30,11 +30,13 @@ namespace MoreEvent   // ← 这里改成你的模组ID（必须和你的.json�
 
 				ModHelper.AddModelToPool(typeof(EventCardPool), typeof(Fermentation));
 				ModHelper.AddModelToPool(typeof(EventCardPool), typeof(ProliferatingG));
-				ModHelper.AddModelToPool(typeof(QuestCardPool),typeof(CurseStorybook));
+                ModHelper.AddModelToPool(typeof(EventCardPool), typeof(ThrillerStrike));
+                ModHelper.AddModelToPool(typeof(QuestCardPool),typeof(CurseStorybook));
 				ModHelper.AddModelToPool(typeof(ColorlessCardPool), typeof(GalacticRoamingGuide));
                 ModHelper.AddModelToPool(typeof(EventRelicPool), typeof(BrokenPacketWatch));
                 ModHelper.AddModelToPool(typeof(EventRelicPool), typeof(HalfClock));
                 ModHelper.AddModelToPool(typeof(EventRelicPool), typeof(TransitionCore));
+                ModHelper.AddModelToPool(typeof(EventRelicPool), typeof(Rumble));
                 //ModHelper.AddModelToPool(typeof( 遗物池 ), typeof( 遗物名字 ));
                 //ModHelper.AddModelToPool(typeof( 药水池 ), typeof( 药水名字 ));
             }
