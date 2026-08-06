@@ -20,8 +20,8 @@ namespace MoreEvent.Patches
 				.Concat(new[] { ModelDb.Event<WhereItIs>() })
 				.Concat(new[] { ModelDb.Event<PacketLoss>() })
 
-                .Concat(new[] { ModelDb.Event<DissolvedClock>() })
-                .Distinct();
+				.Concat(new[] { ModelDb.Event<DissolvedClock>() })
+				.Distinct();
 		}
 	}
 
@@ -34,10 +34,10 @@ namespace MoreEvent.Patches
 				.Concat(new[] { ModelDb.Event<DriftWithFlow>() })
 				.Concat(new[] { ModelDb.Event<Hodgepodge>() })
 				.Concat(new[] { ModelDb.Event<Universe>() })
-                .Concat(new[] { ModelDb.Event<ThrillerNight>() })
+				.Concat(new[] { ModelDb.Event<ThrillerNight>() })
 
-                .Concat(new[] { ModelDb.Event<DissolvedClock>() })
-                .Distinct();
+				.Concat(new[] { ModelDb.Event<DissolvedClock>() })
+				.Distinct();
 		}
 	}
 }

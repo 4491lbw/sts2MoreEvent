@@ -2,6 +2,7 @@ using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -26,8 +27,7 @@ public sealed class HalfClock : RelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Event;
     public override bool ShowCounter => true;
-    public override int DisplayAmount =>
-        base.DynamicVars["TimeLast"].IntValue;
+    public override int DisplayAmount => TimeLast;
 
     private const int maximumTimeCount = 7200;
 
@@ -49,13 +49,13 @@ public sealed class HalfClock : RelicModel
         {
             AssertMutable();
             _timeLast = value;
-            DynamicVars["TimeLast"].BaseValue = value;
+            DynamicVars["TimeLast"].BaseValue = _timeLast;
             InvokeDisplayAmountChanged();
         }
     }
 
     protected override List<DynamicVar> CanonicalVars => [
-        new DynamicVar("TimeLast", _timeLast),
+        new DynamicVar("TimeLast", TimeLast),
         new EnergyVar("Energy", 1),
     ];
     public override Task AfterAutoPrePlayPhaseEnteredLate(PlayerChoiceContext choiceContext, Player player)
@@ -72,6 +72,12 @@ public sealed class HalfClock : RelicModel
         return Task.CompletedTask;
     }
     public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    {
+        TimeShutter();
+        TimeRun();
+        return Task.CompletedTask;
+    }
+    public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
         TimeShutter();
         TimeRun();
@@ -96,12 +102,12 @@ public sealed class HalfClock : RelicModel
         PlayerCmd.GainEnergy(base.DynamicVars.Energy.BaseValue, base.Owner);
         if(base.DynamicVars["TimeLast"].BaseValue < maximumTimeCount)
         {
-            base.DynamicVars["TimeLast"].BaseValue += 2 * counter;
+            TimeLast += 2 * counter;
             InvokeDisplayAmountChanged();
         }
         else
         {
-            base.DynamicVars["TimeLast"].BaseValue = maximumTimeCount;
+            TimeLast = maximumTimeCount;
             InvokeDisplayAmountChanged();
         }
     }

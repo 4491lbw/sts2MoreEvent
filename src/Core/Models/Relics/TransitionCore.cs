@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -18,16 +19,27 @@ namespace MoreEvent.Relics;
 public sealed class TransitionCore : RelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Event;
-    public override bool ShowCounter => false;
+    public override bool ShowCounter => true;
+    public override int DisplayAmount => EffectCount;
 
-    private bool isDamageActive;
-    private decimal DamageAmount;
+    private int _effectCount = 0;
 
-    private bool isPowerActive;
-    private decimal PowerAmount;
-    private ModelId PowerId;
+    [SavedProperty]
+    public int EffectCount
+    {
+        get => _effectCount;
+        private set
+        {
+            AssertMutable();
+            _effectCount = value;
+            base.DynamicVars["EffectCount"].BaseValue = _effectCount;
+            InvokeDisplayAmountChanged();
+        }
+    }
 
     private bool isEffectGoing;
+    private bool shouldMove = false;
+
 
     private enum EffectKind
     {
@@ -55,6 +67,10 @@ public sealed class TransitionCore : RelicModel
         }
     }
     //对应struct的编码解码
+    protected override List<DynamicVar> CanonicalVars => [
+        new DynamicVar("EffectCount", EffectCount),
+    ];
+
     private string Encode(String saveString, StructEffect structEffect)
     {
         String newSave = string.Format(CultureInfo.InvariantCulture, "{0}|{1}|{2}\n", structEffect.Kind, structEffect.Amount, structEffect.PowerId);
@@ -108,16 +124,51 @@ public sealed class TransitionCore : RelicModel
     }
     public override Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
-        if (side == CombatSide.Player)
+        EffectCount = 0;
+        if (side == CombatSide.Enemy)
         {
             PromoteEffects();
         }
         return Task.CompletedTask;
     }
-    // 效果生效
+    // 效果生效：回合开始时生效效果、回合结束时结算伤害
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        if (player == Owner && OnGoingEffectsData != string.Empty)
+        if (player == base.Owner && OnGoingEffectsData != string.Empty)
+        {
+            shouldMove = true;
+            isEffectGoing = true;
+            try
+            {
+                Flash();
+
+                foreach (var item in Decode(OnGoingEffectsData))
+                {
+                    IReadOnlyList<Creature> targets = Owner.Creature.CombatState.HittableEnemies;
+                    Creature? target = Owner.RunState.Rng.CombatTargets.NextItem(targets);  // 队列内每次效果均随机作用对象
+                    if (target == null)
+                        break;
+                    if (item.Kind == EffectKind.Power)
+                    {
+                        PowerModel? canonicalPower = ModelDb.GetByIdOrNull<PowerModel>(item.PowerId);
+                        if (canonicalPower != null)
+                        {
+                            await PowerCmd.Apply(choiceContext, canonicalPower.ToMutable(), target, item.Amount, Owner.Creature, null);
+                        }
+                    }
+                }
+            }
+            finally
+            {
+                isEffectGoing = false;
+            }
+        }
+        // 最后必须清除队列
+        // OnGoingEffectsData = string.Empty;
+    }
+    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    {
+        if (shouldMove && side != CombatSide.Player && OnGoingEffectsData != string.Empty)
         {
             isEffectGoing= true;
             try
@@ -132,81 +183,48 @@ public sealed class TransitionCore : RelicModel
                         break;
                     if (item.Kind == EffectKind.Damage)
                     {
-                        await CreatureCmd.Damage(choiceContext, target, item.Amount, ValueProp.Unpowered, Owner.Creature, null);
+                        await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), target, item.Amount, ValueProp.Unpowered, Owner.Creature, null);
                     }
-                    else if (item.Kind == EffectKind.Power)
-                    {
-                        PowerModel? canonicalPower = ModelDb.GetByIdOrNull<PowerModel>(item.PowerId);
-                        if (canonicalPower != null)
-                        {
-                            await PowerCmd.Apply(choiceContext, canonicalPower.ToMutable(), target, item.Amount, Owner.Creature, null);
-                        }
-                    }
+                    shouldMove = false;
                 }
             }
             finally
             {
                 isEffectGoing= false;
+                OnGoingEffectsData = string.Empty;
             }
         }
         // 最后必须清除队列
-        OnGoingEffectsData = string.Empty;
-        isEffectGoing = false;
     }
     // 伤害延迟记录 + 当前伤害取消
-    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer,CardModel? cardSource)
+    public override decimal ModifyHpLostBeforeOstyLate(Creature target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
-        if (target.Side != CombatSide.Enemy && target.CombatState.CurrentSide == CombatSide.Player)
+        if (isEffectGoing || amount <= 0m || target.Side != CombatSide.Enemy || target.CombatState?.CurrentSide != CombatSide.Player)
         {
-            return 1m;
+            return amount;
         }
-        isDamageActive = false;
+        EffectCount += 1;
+        EffectsData = Encode(
+            EffectsData,
+            new StructEffect
+            {
+                Kind = EffectKind.Damage,
+                Amount = amount
+            });
 
-        if (isEffectGoing || amount <= 0m)
-        {
-            return 1m;
-        }
-
-        isDamageActive = true;
-
-        DamageAmount = amount;
-        //EffectsData = Encode(EffectsData, new StructEffect { Kind = EffectKind.Damage, Amount = amount});
-
-        // 伤害归零
         return 0m;
-    }
-
-    public override Task BeforeDamageReceived(PlayerChoiceContext choiceContext, Creature target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
-    {
-        if(!isEffectGoing && isDamageActive)
-        {
-            EffectsData = Encode(EffectsData, new StructEffect { Kind = EffectKind.Damage, Amount = DamageAmount });
-            isDamageActive = false;
-            DamageAmount = 0m;
-        }
-
-        isDamageActive = false;
-        return Task.CompletedTask;
     }
 
     // buff记录 + buff清除
     public override bool TryModifyPowerAmountReceived(PowerModel canonicalPower, Creature target, decimal amount, Creature? applier, out decimal modifiedAmount)
     {
-        isPowerActive = false;
-        if(target.Side != CombatSide.Enemy && target.CombatState.CurrentSide == CombatSide.Player)
+        if (isEffectGoing ||  amount == 0m || target.Side != CombatSide.Enemy || target.CombatState.CurrentSide != CombatSide.Player)
         {
             modifiedAmount = amount;
             return false;
         }
-        if (isEffectGoing ||  amount == 0m)
-        {
-            modifiedAmount = amount;
-            return false;
-        }
+        EffectCount += 1;
 
-        isPowerActive = true;
-        PowerId = canonicalPower.Id;
-        PowerAmount = amount;
         modifiedAmount = 0m;
 
         EffectsData = Encode(EffectsData, new StructEffect { Kind = EffectKind.Power, Amount = amount, PowerId = canonicalPower.Id });
@@ -229,9 +247,7 @@ public sealed class TransitionCore : RelicModel
     // 处理完当前效果后清除记录
     private void ResetEffects()
     {
-        isDamageActive = false;
-        isPowerActive = false;
-        PowerId = null;
         isEffectGoing = false;
+        shouldMove = false;
     }
 }

@@ -1,15 +1,19 @@
 { 
+  "BLUE_PUPPET.title": "蓝色布偶",
+  "BLUE_PUPPET.flavor": "[red]？？？[/red]",
+  "BLUE_PUPPET.description": "你无法回复生命，你的生命被储存在[gold]蓝色布偶[/gold]中，布偶会替你承受伤害。\n当前储存[blue]{HpCollect}[/blue][img]res://images/packed/sprite_fonts/soul_heart.png[/img]。",
+
   "RUMBLE.title": "咕噜咕噜",
   "RUMBLE.flavor": "[green]你感到反胃。[/green]",
-  "RUMBLE.description": "回合开始时，获得[green]{Poison}[/green]层[gold]中毒[/gold]。",
+  "RUMBLE.description": "回合开始时，获得[green]5[/green]层[gold]中毒[/gold]，获得[gold]虚弱[/gold]。",
 
   "TRANSITION_CORE.title": "古老核心",
   "TRANSITION_CORE.flavor": "[red][jitter]它来自上个宇宙！！！[/jitter][/red]",
-  "TRANSITION_CORE.description": "你对敌人造成的伤害、施加的效果在[gold]一回合后[/gold]才会生效。",
+  "TRANSITION_CORE.description": "你对敌人造成的伤害、施加的效果在[gold]一回合后[/gold]才会生效。\n在本回合你记录了[blue]{EffectCount}[/blue]个效果。",
 
-  "BROKEN_POCKET_WATCH.title": "损坏怀表",
-  "BROKEN_POCKET_WATCH.flavor": "[red]咦，怀表怎么停了？[/red]",
-  "BROKEN_POCKET_WATCH.description": "当你在[gold]1min[/gold]内结束战斗，获得额外奖励。当一场战斗持续超过[gold]5min[/gold]时，将受到惩罚。",
+  "BROKEN_PACKET_WATCH.title": "损坏怀表",
+  "BROKEN_PACKET_WATCH.flavor": "[red]咦，怀表怎么停了？[/red]",
+  "BROKEN_PACKET_WATCH.description": "在[gold]1min[/gold]内结束战斗获得额外奖励。\n当一场战斗持续超过[gold]5min[/gold]时，你受到惩罚。",
 
   "HALF_CLOCK.title": "半块钟",
   "HALF_CLOCK.flavor": "[red]你感受到了时间的引力……[/red]",

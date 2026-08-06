@@ -18,7 +18,7 @@ public sealed class GalacticRoamingGuide : CardModel
         new DynamicVar("GalaCard", 1m),
     ];
     public GalacticRoamingGuide()
-    : base(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
+    : base(0, CardType.Skill, CardRarity.Event, TargetType.Self)
     {
     }
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

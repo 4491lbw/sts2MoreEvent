@@ -33,7 +33,7 @@ public sealed class ThrillerStrike : CardModel
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
         await PowerCmd.Apply<WeakPower>(choiceContext, cardPlay.Target, base.DynamicVars.Weak.BaseValue, base.Owner.Creature, this);
-        await PowerCmd.Apply<WeakPower>(choiceContext, cardPlay.Target, -base.DynamicVars.Strength.BaseValue, base.Owner.Creature, this);
+        await PowerCmd.Apply<StranglePower>(choiceContext, cardPlay.Target, -base.DynamicVars.Strength.BaseValue, base.Owner.Creature, this);
     }
     protected override void OnUpgrade()
     {
